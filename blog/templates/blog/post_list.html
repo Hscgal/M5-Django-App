@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Harrison's Blog</title>
-    </head>
-    <body>
-        <header>
-            <h1><a href="/">Harrison's Blog</a></h1>
-        </header>
 
-        <article>
-            <time>published: 03.02.2026, 10:23</time>
-            <h2><a href="">First blog post</a></h2>
-            <p>This is my first blog post. I wrote it following the Django Girls tutorial</p>
-        </article>
+<head>
+    <title>Harrison's Blog</title>
+</head>
 
-        <article>
-            <time>published: 03.02.2026, 10:23</time>
-            <h2><a href="">My second post</a></h2>
-            <p>This is my second blog post. I wrote it following the Django Girls tutorial</p>
-        </article>
-    </body>
+<body>
+    <header>
+        <h1><a href="/">Harrison's Blog</a></h1>
+    </header>
+{% for post in posts %}
+    <article> 
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+        <time>published: {{post.published_date}}</time>
+    </article>
+{% endfor %}
+</body>
+
 </html>
